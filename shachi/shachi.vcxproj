@@ -176,9 +176,6 @@
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)resource\%(Filename).cso</ObjectFileOutput>
     </FxCompile>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="overview.txt" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

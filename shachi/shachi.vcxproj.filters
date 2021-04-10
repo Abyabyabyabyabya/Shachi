@@ -73,9 +73,4 @@
       <Filter>shachi\Sandbox\resource</Filter>
     </FxCompile>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="overview.txt">
-      <Filter>リソース ファイル</Filter>
-    </Text>
-  </ItemGroup>
 </Project>
