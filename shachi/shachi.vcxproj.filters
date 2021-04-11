@@ -9,68 +9,13 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="shachi\Sandbox">
-      <UniqueIdentifier>{49320709-44bb-4db7-b733-010fe24f39c9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="shachi\Graphics">
       <UniqueIdentifier>{0dcd9c32-9656-41ab-bfee-26b05a434ad3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="shachi\Sandbox\resource">
-      <UniqueIdentifier>{14415fe2-b837-47eb-9b01-bdbe65c123ff}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>shachi</Filter>
     </ClCompile>
-    <ClCompile Include="shachi.cpp">
-      <Filter>shachi</Filter>
-    </ClCompile>
-    <ClCompile Include="level_sandbox.cpp">
-      <Filter>shachi\Sandbox</Filter>
-    </ClCompile>
-    <ClCompile Include="graphics.cpp">
-      <Filter>shachi\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="model.cpp">
-      <Filter>shachi\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="shader.cpp">
-      <Filter>shachi\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="render.cpp">
-      <Filter>shachi\Graphics</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="shachi.hpp">
-      <Filter>shachi</Filter>
-    </ClInclude>
-    <ClInclude Include="level.hpp">
-      <Filter>shachi</Filter>
-    </ClInclude>
-    <ClInclude Include="level_sandbox.hpp">
-      <Filter>shachi\Sandbox</Filter>
-    </ClInclude>
-    <ClInclude Include="graphics.hpp">
-      <Filter>shachi\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="model.hpp">
-      <Filter>shachi\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="shader.hpp">
-      <Filter>shachi\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="render.hpp">
-      <Filter>shachi\Graphics</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="simple_vs.hlsl">
-      <Filter>shachi\Sandbox\resource</Filter>
-    </FxCompile>
-    <FxCompile Include="simple_ps.hlsl">
-      <Filter>shachi\Sandbox\resource</Filter>
-    </FxCompile>
   </ItemGroup>
 </Project>
