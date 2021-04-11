@@ -9,7 +9,7 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="shachi\Graphics">
+    <Filter Include="shachi\ver 2.0">
       <UniqueIdentifier>{0dcd9c32-9656-41ab-bfee-26b05a434ad3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -17,5 +17,19 @@
     <ClCompile Include="main.cpp">
       <Filter>shachi</Filter>
     </ClCompile>
+    <ClCompile Include="framework.cpp">
+      <Filter>shachi\ver 2.0</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.hpp">
+      <Filter>shachi\ver 2.0</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics.hpp">
+      <Filter>shachi\ver 2.0</Filter>
+    </ClInclude>
+    <ClInclude Include="project_settings.hpp">
+      <Filter>shachi\ver 2.0</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
