@@ -1,4 +1,5 @@
 #include "framework.hpp"
+#include <functional>
 #include <chrono>
 #include <tchar.h>
 #include "project_settings.hpp"
@@ -8,6 +9,7 @@ namespace
   /* 関数 */
     HWND launchWindow(HINSTANCE);
     LRESULT CALLBACK wndProc(HWND, UINT, WPARAM, LPARAM);
+    void mainLoop(const std::function<void()>& TickEvent);
 
   /* 定数 */
     constexpr DWORD kWindowStyle = WS_OVERLAPPEDWINDOW & ~WS_THICKFRAME & ~WS_MAXIMIZEBOX;
@@ -20,38 +22,13 @@ namespace
 
 int Framework::run(HINSTANCE HInstance)
 {
-    using namespace std::chrono;
-
     launchWindow(HInstance);
-
-    auto last  = high_resolution_clock::now() - kTimePerFrameUs;  // 最終計測時点 (1フレーム目を即実行するため、kTimeperFrameUS で減算)
-    auto over = last - last;                                      // over = elapsed % TimePerFrame
-
-    // メインループ
-    while(true) {
-        // メッセージ処理
-        MSG msg{};
-        bool is_quit {false};
-        while(PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
-            is_quit |= (msg.message == WM_QUIT); // 終了メッセージを受け取ったら、プログラムも終了する
-        }
-        if(is_quit) break;
-
-        // ゲーム更新
-        auto now = high_resolution_clock::now();
-        auto elapsed_us = duration_cast<microseconds>(now - last) + over;
-        if(elapsed_us >= kTimePerFrameUs) {
-            last = now;
-            over = elapsed_us % kTimePerFrameUs;
-
-            /* Update */
-            // 作業地点
-            // フレームワークの作成中
-            // メインループはできたので、ウィンドウの表示から再開する
-        }
-    }
+    mainLoop(nullptr);
+    // 作業地点ここ
+    // ゲーム処理をまとめた Game クラスを作ろうかと考えたが、
+    // 現時点では Level の遷移もありませんし、その外でやりたいこともないのでおいておく
+    // -次回-
+    // Levelの定義と、ゲームループへの組み込み
 
     return gExitCode;
 }
@@ -136,6 +113,36 @@ LRESULT CALLBACK wndProc(HWND HWnd, UINT Message, WPARAM WParam, LPARAM LParam)
     }
 
     return DefWindowProc(HWnd, Message, WParam, LParam);
+}
+
+void mainLoop(const std::function<void()>& Tick)
+{
+    using namespace std::chrono;
+    
+    auto last  = high_resolution_clock::now() - kTimePerFrameUs;  // 最終計測時点 (1フレーム目を即実行するため、kTimeperFrameUS で減算)
+    auto over = last - last;                                      // over = elapsed % TimePerFrame
+
+    while(true) {
+        // メッセージ処理
+        MSG msg{};
+        bool is_quit {false};
+        while(PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
+            TranslateMessage(&msg);
+            DispatchMessage(&msg);
+            is_quit |= (msg.message == WM_QUIT); // 終了メッセージを受け取ったら、プログラムも終了する
+        }
+        if(is_quit) break;
+
+        // フレームレート管理
+        auto now = high_resolution_clock::now();
+        auto elapsed_us = duration_cast<microseconds>(now - last) + over;
+        if(elapsed_us >= kTimePerFrameUs) {
+            last = now;
+            over = elapsed_us % kTimePerFrameUs;
+
+            Tick();
+        }
+    }
 }
 }
 // EOF

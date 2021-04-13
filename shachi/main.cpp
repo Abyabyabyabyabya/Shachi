@@ -1,10 +1,8 @@
 #ifdef _DEBUG
 #include <crtdbg.h>
 #endif
-#include <Windows.h>
 #include "framework.hpp"
 
- 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 #ifdef _DEBUG
     //_CrtSetBreakAlloc();

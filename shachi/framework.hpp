@@ -3,6 +3,11 @@
 
 #include <Windows.h>
 
+///
+/// @brief  プロジェクトフレームワーク
+///          - ウィンドウの起動
+///          - メインループ (ウィンドウメッセージ処理、FPS管理)
+///
 class Framework
 {
 public :
