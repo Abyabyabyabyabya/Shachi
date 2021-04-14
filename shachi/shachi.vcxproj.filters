@@ -20,6 +20,9 @@
     <ClCompile Include="framework.cpp">
       <Filter>shachi\ver 2.0</Filter>
     </ClCompile>
+    <ClCompile Include="level.cpp">
+      <Filter>shachi\ver 2.0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.hpp">
@@ -29,6 +32,9 @@
       <Filter>shachi\ver 2.0</Filter>
     </ClInclude>
     <ClInclude Include="project_settings.hpp">
+      <Filter>shachi\ver 2.0</Filter>
+    </ClInclude>
+    <ClInclude Include="level.hpp">
       <Filter>shachi\ver 2.0</Filter>
     </ClInclude>
   </ItemGroup>

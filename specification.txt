@@ -46,4 +46,9 @@ BranchName「eye」
    Material    - シーンオブジェクト マテリアル(Shader, Texture, etc...)
   
  シーン内オブジェクトは共通のシェーダ―を使用する。
+
+Graphics
+ デバイス、デバイスコンテキスト、スワップチェイ等、D3Dの管理クラス
+ CommonState, Renderer の生成クラス
+ CommonState, Renderer はキャッシュしない。最適化不要
  

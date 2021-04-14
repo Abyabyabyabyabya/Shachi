@@ -4,6 +4,8 @@
 #include <tchar.h>
 #include "project_settings.hpp"
 
+#include "level.hpp"
+
 namespace
 {
   /* 関数 */
@@ -23,12 +25,11 @@ namespace
 int Framework::run(HINSTANCE HInstance)
 {
     launchWindow(HInstance);
-    mainLoop(nullptr);
-    // 作業地点ここ
-    // ゲーム処理をまとめた Game クラスを作ろうかと考えたが、
-    // 現時点では Level の遷移もありませんし、その外でやりたいこともないのでおいておく
-    // -次回-
-    // Levelの定義と、ゲームループへの組み込み
+
+    Level lev;
+    if( !lev.initialize() ) return -1;
+    mainLoop(std::bind(&Level::update, &lev));
+    lev.finalize();
 
     return gExitCode;
 }
