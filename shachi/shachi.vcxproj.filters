@@ -23,6 +23,12 @@
     <ClCompile Include="level.cpp">
       <Filter>shachi\ver 2.0</Filter>
     </ClCompile>
+    <ClCompile Include="graphics.cpp">
+      <Filter>shachi\ver 2.0</Filter>
+    </ClCompile>
+    <ClCompile Include="layer.cpp">
+      <Filter>shachi\ver 2.0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.hpp">
@@ -35,6 +41,15 @@
       <Filter>shachi\ver 2.0</Filter>
     </ClInclude>
     <ClInclude Include="level.hpp">
+      <Filter>shachi\ver 2.0</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer.hpp">
+      <Filter>shachi\ver 2.0</Filter>
+    </ClInclude>
+    <ClInclude Include="layer.hpp">
+      <Filter>shachi\ver 2.0</Filter>
+    </ClInclude>
+    <ClInclude Include="show_error.hpp">
       <Filter>shachi\ver 2.0</Filter>
     </ClInclude>
   </ItemGroup>

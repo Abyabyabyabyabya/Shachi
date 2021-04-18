@@ -7,6 +7,7 @@ struct ProjectSettings
     template <class T> static constexpr T kWindowHeight = static_cast<T>(    720   );
     template <class T> static constexpr T kHorizontalResolution = static_cast<T>(   1280   );
     template <class T> static constexpr T kVerticalResolution   = static_cast<T>(    720   );
+    static constexpr bool kWindowed = true;
 };
 
 #endif // !INCLUDED_SHACHI_PROJECT_SETTINGS_HPP_

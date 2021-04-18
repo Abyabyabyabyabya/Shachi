@@ -1,9 +1,8 @@
 #include "level.hpp"
 
-bool Level::initialize()
+void Level::initialize()
 {
     
-    return true;
 }
 
 void Level::finalize()

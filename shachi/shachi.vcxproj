@@ -142,14 +142,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="framework.cpp" />
+    <ClCompile Include="graphics.cpp" />
+    <ClCompile Include="layer.cpp" />
     <ClCompile Include="level.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.hpp" />
     <ClInclude Include="graphics.hpp" />
+    <ClInclude Include="layer.hpp" />
     <ClInclude Include="level.hpp" />
     <ClInclude Include="project_settings.hpp" />
+    <ClInclude Include="renderer.hpp" />
+    <ClInclude Include="show_error.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

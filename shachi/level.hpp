@@ -7,7 +7,7 @@
 class Level
 {
 public :
-    bool initialize();
+    void initialize();
     void finalize();
     void update();
 };

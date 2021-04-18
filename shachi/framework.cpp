@@ -11,7 +11,7 @@ namespace
   /* 関数 */
     HWND launchWindow(HINSTANCE);
     LRESULT CALLBACK wndProc(HWND, UINT, WPARAM, LPARAM);
-    void mainLoop(const std::function<void()>& TickEvent);
+    void mainLoop(const std::function<void()>& TickEvent, const std::function<void()>& BeginEvent, const std::function<void()>& EndEvent);
 
   /* 定数 */
     constexpr DWORD kWindowStyle = WS_OVERLAPPEDWINDOW & ~WS_THICKFRAME & ~WS_MAXIMIZEBOX;
@@ -24,12 +24,13 @@ namespace
 
 int Framework::run(HINSTANCE HInstance)
 {
-    launchWindow(HInstance);
+    HWND window_handle = launchWindow(HInstance);
+    if(!window_handle) return -1;
 
-    Level lev;
-    if( !lev.initialize() ) return -1;
-    mainLoop(std::bind(&Level::update, &lev));
-    lev.finalize();
+
+    Level lev;          //     Tick                             Begin                                End
+    mainLoop(std::bind(&Level::update, &lev), std::bind(&Level::initialize, &lev), std::bind(&Level::finalize, &lev)); 
+
 
     return gExitCode;
 }
@@ -116,13 +117,14 @@ LRESULT CALLBACK wndProc(HWND HWnd, UINT Message, WPARAM WParam, LPARAM LParam)
     return DefWindowProc(HWnd, Message, WParam, LParam);
 }
 
-void mainLoop(const std::function<void()>& Tick)
+void mainLoop(const std::function<void()>& Tick, const std::function<void()>& Begin, const std::function<void()>& End)
 {
     using namespace std::chrono;
+
+    Begin();
     
     auto last  = high_resolution_clock::now() - kTimePerFrameUs;  // 最終計測時点 (1フレーム目を即実行するため、kTimeperFrameUS で減算)
     auto over = last - last;                                      // over = elapsed % TimePerFrame
-
     while(true) {
         // メッセージ処理
         MSG msg{};
@@ -144,6 +146,8 @@ void mainLoop(const std::function<void()>& Tick)
             Tick();
         }
     }
+
+    End();
 }
 }
 // EOF
